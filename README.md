@@ -8,3 +8,34 @@ Key features are:
 ###Installation
 Place the distribution jar inside the **WEB-INF/lib** folder, along with **rewrite-servlet** and **rewrite-integration-faces** artifacts. That's all you'll need.
 
+###How to use
+Make following replacements:
+`@Join` to `@URLJoin`, `@Parameter` to `@URLParameter`,`@RequestAction` to `@URLAction`.
+And don't forget to remove obsoleted `@Deferred` and `@IgnorePostback` annotation, the library checks their presence and wont them.
+Here is a sample code:
+
+        @ManagedBean
+        @ViewScoped
+        @URLJoins(joins = {
+          @URLJoin(path = "/{lang}/{testVar}/", to = "/faces/page1.xhtml"),
+          @URLJoin(path = "/{lang}/", to = "/faces/page2.xhtml")
+        })
+        public class TestBean extends LangSetter {
+          @URLParameter(ingorePostback = true)
+          private String testVar;
+          // Getter and setter required
+          @URLAction
+          public void action1() {
+          ...
+          }
+        }
+
+        public class LangSetter {
+          @URLParameter
+          private String lang;
+          // Getter and setter required
+          @URLAction(views = {"/faces/page2.xhtml"}, after = Phase.RESTORE_VIEW)
+          public void action2() {
+          ...
+          }
+        }
