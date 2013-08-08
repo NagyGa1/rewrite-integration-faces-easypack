@@ -11,7 +11,7 @@ Place the distribution jar inside the **WEB-INF/lib** folder, along with **rewri
 ###How to use
 Make following replacements:
 `@Join` to `@URLJoin`, `@Parameter` to `@URLParameter`,`@RequestAction` to `@URLAction`.
-And don't forget to remove obsoleted `@Deferred` and `@IgnorePostback` annotation, the library checks their presence and wont them.
+And don't forget to remove obsoleted `@Deferred` and `@IgnorePostback` annotation, the library checks their presence and throws exceptions if found.
 Here is a sample code:
 
         @ManagedBean
