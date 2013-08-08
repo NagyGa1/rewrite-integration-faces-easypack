@@ -1,5 +1,5 @@
-Java library that extends and simplifies the use of OCPsoft's Rewrite libraries when programming in JSF.
-Key features are:
+Java library that extends and simplifies the use of OCPsoft's [Rewrite](http://ocpsoft.org/rewrite/) libraries when programming in JSF.
+
 ###Key features
 1. Simplicity - you no longer need to annotate your fields and methods with multiple annotations: `@Parameter` or `@RequestAction` + `@Deferred` + `@IgnorePostback`, new annotations provide all the neccessary elements, use one annotation instead of two (minimum for JSF) or three.
 2. More power - you can define url parameters and actions wherever you want in your ManagedBean's class hierarchy, which is not the case with core Rewrite libraries.
