@@ -14,8 +14,8 @@ Make following replacements:
 And don't forget to remove obsoleted `@Deferred` and `@IgnorePostback` annotation, the library checks their presence and throws exceptions if found.
 Here is a sample code:
 
-        @ManagedBean
-        @ViewScoped
+        @javax.faces.bean.ManagedBean
+        @javax.faces.bean.ViewScoped
         @URLJoins(joins = {
           @URLJoin(path = "/{lang}/{testVar}/", to = "/faces/page1.xhtml"),
           @URLJoin(path = "/{lang}/", to = "/faces/page2.xhtml")
