@@ -111,7 +111,7 @@ public abstract class AbstractClassHandler<A extends Annotation> implements Anno
       }
     }
     // Proceed to the next class in chain
-    logger.log(Level.INFO, "Bean class ''{0}'' has been processed.", beanClass.getName());
+    logger.log(Level.INFO, "Bean class ''{0}'', annotation ''{1}'', has been processed.", new Object[]{beanClass.getName(), annotation.annotationType().getName()});
     chain.proceed();
   }
 
