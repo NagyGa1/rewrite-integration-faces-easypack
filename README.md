@@ -34,8 +34,12 @@ Here is a sample code:
           @URLParameter
           private String lang;
           // Getter and setter required
-          @URLAction(views = {"/faces/page2.xhtml"}, after = Phase.RESTORE_VIEW)
+          @URLAction
           public void action2() {
+          ...
+          }
+          @URLAction(views = {"/faces/page2.xhtml"}, after = Phase.RESTORE_VIEW)
+          public void action3() {
           ...
           }
         }
