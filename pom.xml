@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.inswood.web</groupId>
 	<artifactId>rewrite-integration-faces-easypack</artifactId>
-	<version>1.0</version>
+	<version>1.0.1-NG1</version>
 	<packaging>jar</packaging>
 	<name>rewrite-integration-faces-easypack</name>
 	<build>
