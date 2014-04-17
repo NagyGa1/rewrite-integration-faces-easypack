@@ -79,11 +79,26 @@ public class URLJoinsHandler extends AbstractClassHandler<URLJoins> {
       String path = join.path();
       String view = join.to();
 
-      //TODO add ambiguity checks, not just comparing strings
-      if (visitedViews.contains(view)) {
-        throw new IllegalStateException("Duplicate viewId '" + view + "' in @" + URLJoins.class.getSimpleName() + " annotation for class '" + clazz.getName() + "'");
-      }
-
+    // TODO add ambiguity checks, not just comparing strings
+	/*
+	 * This was a further restriction over Rewrite, it kills this
+	 * business case that was accepted: <pre> <code>
+	 * 
+	 * @URLJoins(joins = {
+	 * 
+	 * @URLJoin(path = "/b2c/quote/lieva/", to = "/gh/b2c/quote.xhtml"),
+	 * 
+	 * @URLJoin( path = "/b2c/quote/lieva/{quoteNo}/{verifyToken}", to =
+	 * "/gh/b2c/quote.xhtml") }) </code></pre>
+	 * 
+	 * Okay, this is not bi-directional.
+	 */
+	// if (visitedViews.contains(view)) {
+	// throw new IllegalStateException("Duplicate viewId '" + view
+	// + "' in @" + URLJoins.class.getSimpleName()
+	// + " annotation for class '" + clazz.getName() + "'");
+	// }
+      
       if (visitedPaths.contains(path)) {
         throw new IllegalStateException("Duplicate path '" + path + "' in @" + URLJoins.class.getSimpleName() + " annotation for class '" + clazz.getName() + "'");
       }
